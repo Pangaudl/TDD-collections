@@ -44,6 +44,14 @@ public class ExempleIterateur implements Iterable<Integer> {
     System.out.println("false pour la 10ème valeur");
     System.out.println();
 
+    // Test 3 : vérifie que next() retourne la valeur carrée de l'index.
+    Iterator<Integer> it3 = nouveau.iterator();
+    for (int i = 0; i < 10; i++) {
+      assert (it3.next() == i * i);
+      System.out.println(i + ") la valeur carrée de l'index : " + i * i);
+    }
+    System.out.println();
+
     for (int i : nouveau) {
       System.out.println(i);
     }
