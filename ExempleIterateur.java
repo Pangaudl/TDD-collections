@@ -2,32 +2,42 @@ import java.util.Iterator;
 
 public class ExempleIterateur implements Iterable<Integer> {
 
-	@Override
-	public Iterator<Integer> iterator() {
-		// TODO Auto-generated method stub
-		return new Iterator<Integer>() {
-			
-			private int i = 0;
+  @Override
+  public Iterator<Integer> iterator() {
+    // TODO Auto-generated method stub
+    return new Iterator<Integer>() {
 
-			@Override
-			public boolean hasNext() {
-				// TODO Auto-generated method stub
-				return i < 10;
-			}
+      private int i = 0;
 
-			@Override
-			public Integer next() {
-				int valeur = i++; 
-				return valeur * valeur;
-			}
-		};
-	}
+      @Override
+      public boolean hasNext() {
+        // TODO Auto-generated method stub
+        return i < 10;
+      }
 
-	public static void main(String[] args) {
-		ExempleIterateur nouveau = new ExempleIterateur();
-		for(int i : nouveau) {
-			System.out.println(i);
-		}
-	}
-	
+      @Override
+      public Integer next() {
+        int valeur = i++;
+        return valeur * valeur;
+      }
+    };
+  }
+
+  public static void main(String[] args) {
+    ExempleIterateur nouveau = new ExempleIterateur();
+
+    // Test 1 : vérifie que hasNext() renvoie true pour les 9 premières valeurs.
+    Iterator<Integer> it1 = nouveau.iterator();
+    for (int i = 0; i < 9; i++) {
+      assert (it1.hasNext());
+      it1.next();
+      System.out.println(i + ") true pour les 9 premières valeurs : " + i);
+    }
+    System.out.println();
+
+    for (int i : nouveau) {
+      System.out.println(i);
+    }
+  }
+
 }
