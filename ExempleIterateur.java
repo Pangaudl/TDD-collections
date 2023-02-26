@@ -35,6 +35,15 @@ public class ExempleIterateur implements Iterable<Integer> {
     }
     System.out.println();
 
+    // Test 2 : vérifie que hasNext() renvoie false après le 10ème valeur.
+    Iterator<Integer> it2 = nouveau.iterator();
+    for (int i = 0; i < 10; i++) {
+      it2.next();
+    }
+    assert (it2.hasNext());
+    System.out.println("false pour la 10ème valeur");
+    System.out.println();
+
     for (int i : nouveau) {
       System.out.println(i);
     }
